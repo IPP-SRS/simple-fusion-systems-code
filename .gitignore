@@ -1,1 +1,5 @@
 venv
+__pycache__
+old_versions/*
+demo_output_ref.csv
+test_plot_ref.png
