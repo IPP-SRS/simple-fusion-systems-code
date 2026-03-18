@@ -11,11 +11,13 @@
 # Johner, Fus. Sci. Tech. 59 (2011)
 # Uckan (1989)
 
-from IPython import embed
+# %%
 
+from IPython import embed
 from simplesystemcode import InputParameters, simplesystemcode
 from utilities import plot_scan, write_csv
-## sample script. simplesystemcode function can also be imported into an external script and run for parameter scans, optimization loops, etc. 
+
+# %%
 
 # Assumed inputs/targets: have a play! 
 input_parameters = InputParameters(
@@ -36,8 +38,12 @@ input_parameters = InputParameters(
 	ZEff=1.0
 )
 
+# %%
+
 ## Do a single run of the systems code
 design_point = simplesystemcode(input_parameters)
+
+# %%
 
 ## sample code for elongation scan
 elongations = [1.0,1.1,1.2,1.3,1.4,1.5,1.6]
@@ -47,12 +53,17 @@ for elongation in elongations:
 	input_parameters.Kappa = elongation
 	scan_out.append(simplesystemcode(input_parameters, print_out=False))
 
+# %%
 
 ## Sample code for visualising a scan
 plot_scan(scan_out, 'Kappa', 'RMajor')
 
+# %%
+
 ## Sample code for exporting scan data to .csv for Mimer (https://assar.his.se/mimer/html/). Be careful with overwriting data!
 write_csv(scan_out, filename = 'demo_output.csv')
 
+# %%
+
 ## Option to look at scan embedded in IPython, by typing e.g. "scan_out[3]", "scan_out[5]"
-# embed()
+embed()
