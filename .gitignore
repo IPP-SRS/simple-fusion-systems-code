@@ -1,5 +1,5 @@
-venv
+.venv
 __pycache__
-old_versions/*
+old_versions/
 demo_output_ref.csv
 test_plot_ref.png
